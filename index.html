@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dosa Besar Andi Maraya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="hero-section">
+            <h1 class="glitch-text">DOSA BESAR ANDI MARAYA</h1>
+            <p class="author">Arsip Digital Pelanggaran Janji</p>
+        </header>
+
+        <div id="live-announcer" class="sr-only" aria-live="polite"></div>
+
+        <section class="form-card" aria-labelledby="form-heading">
+            <h2 id="form-heading">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M12 4v16m8-8H4"></path>
+                </svg>
+                Input Pelanggaran Baru
+            </h2>
+            <form id="dosaForm">
+                <div class="input-group">
+                    <label for="deskripsi" class="input-label">Deskripsi Kelakuan *</label>
+                    <input type="text" id="deskripsi" placeholder="Tuliskan janji yang diingkari..." required
+                        autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label for="uploadPassword" class="input-label">Password Member PKI (PARTAI KARBIT
+                        INDONESIA)*</label>
+                    <input type="password" id="uploadPassword" placeholder="Masukkan password untuk upload..." required>
+                </div>
+
+                <div class="input-group">
+                    <label for="buktiGambar" class="input-label">Lampiran Bukti (Opsional)</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="buktiGambar" accept="image/*" multiple>
+                        <div class="btn-file-custom" id="fileName">Pilih File Gambar</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">UPLOAD DATA</button>
+            </form>
+
+            <div id="imageModal" class="modal-overlay" onclick="closeImageModal()">
+                <span class="close-zoom">&times;</span>
+                <img class="modal-content-zoom" id="imgZoomed">
+            </div>
+        </section>
+
+        <section class="list-section">
+            <div class="list-controls">
+                <label for="sortOrder">Urutkan:</label>
+                <select id="sortOrder">
+                    <option value="terlama">Terlama ke Terbaru (Naik)</option>
+                    <option value="terbaru">Terbaru ke Terlama (Turun)</option>
+                </select>
+            </div>
+            <ul class="dosa-list" id="dosaList">
+            </ul>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Dibuat oleh semua member PKI (Partai Karbit Indonesia)</p>
+        <p class="admin-credit">Pengelola Website: <strong>taufiqhi220</strong></p>
+    </footer>
+
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Otorisasi Diperlukan!</h3>
+            <p>Ketik Password Member PKI PARTAI KARBIT INDONESIA untuk menghapus data ini:</p>
+            <input type="text" id="confirmInput" placeholder="Ketik di sini...">
+            <div class="modal-buttons">
+                <button onclick="closeModal()" class="btn-cancel">Batal</button>
+                <button id="btnExecute" class="btn-confirm">Hapus Data</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <svg width="64" height="64" fill="none" stroke="#10b981" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3>EKSEKUSI BERHASIL</h3>
+            <p>Data pelanggaran telah dieliminasi dari server.</p>
+            <button onclick="closeSuccessModal()" class="btn-confirm"
+                style="background: #10b981; margin-top: 20px;">Selesai</button>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal-overlay" onclick="closeImageModal()">
+        <span class="close-zoom">&times;</span>
+        <img class="modal-content-zoom" id="imgZoomed">
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
